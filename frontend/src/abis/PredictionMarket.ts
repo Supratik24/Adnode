@@ -1,0 +1,67 @@
+export const PredictionMarketABI = [
+  {
+    inputs: [],
+    name: 'marketInfo',
+    outputs: [
+      { internalType: 'string', name: 'question', type: 'string' },
+      { internalType: 'string', name: 'description', type: 'string' },
+      { internalType: 'uint256', name: 'endTime', type: 'uint256' },
+      { internalType: 'uint8', name: 'state', type: 'uint8' },
+      { internalType: 'address', name: 'creator', type: 'address' },
+      { internalType: 'bool', name: 'requiresVerification', type: 'bool' },
+      { internalType: 'uint256', name: 'totalVolume', type: 'uint256' },
+      { internalType: 'uint256', name: 'totalTraders', type: 'uint256' },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [{ internalType: 'bool', name: 'isYes', type: 'bool' }],
+    name: 'buyShares',
+    outputs: [],
+    stateMutability: 'payable',
+    type: 'function',
+  },
+  {
+    inputs: [{ internalType: 'uint256', name: 'sharesAmount', type: 'uint256' }, { internalType: 'bool', name: 'isYes', type: 'bool' }],
+    name: 'redeemShares',
+    outputs: [],
+    stateMutability: 'nonpayable',
+    type: 'function',
+  },
+  {
+    inputs: [],
+    name: 'getYesPrice',
+    outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [],
+    name: 'getNoPrice',
+    outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [{ internalType: 'address', name: 'user', type: 'address' }],
+    name: 'getUserBalance',
+    outputs: [
+      { internalType: 'uint256', name: 'yes', type: 'uint256' },
+      { internalType: 'uint256', name: 'no', type: 'uint256' },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [],
+    name: 'getPoolInfo',
+    outputs: [
+      { internalType: 'uint256', name: 'yesShares', type: 'uint256' },
+      { internalType: 'uint256', name: 'noShares', type: 'uint256' },
+      { internalType: 'uint256', name: 'liquidity', type: 'uint256' },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+] as const;

@@ -1,0 +1,21 @@
+{
+  "name": "prediction-market-contracts",
+  "version": "1.0.0",
+  "description": "Smart contracts for decentralized prediction market",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy:local": "hardhat run script/deploy.js --network localhost",
+    "deploy:amoy": "hardhat run script/deploy.js --network amoy",
+    "deploy:polygon": "hardhat run script/deploy.js --network polygon",
+    "verify": "hardhat verify"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "hardhat": "^2.19.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1"
+  }
+}
+
