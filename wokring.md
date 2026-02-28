@@ -21,7 +21,7 @@ Adnode is a Web3 advertising network where users get paid crypto for viewing or 
   - `src/components/` - Reusable React components
   - `src/lib/` - Utility functions (auth, database, wallet)
   - `src/types/` - TypeScript type definitions
-- `contracts/` - Solidity smart contracts (AdSlotNFT, MetaShiftAdManager)
+- `contracts/` - Solidity smart contracts (AdSlotNFT, Ad Manager)
 - `subgraph/` - The Graph integration for analytics
 
 ### User Roles

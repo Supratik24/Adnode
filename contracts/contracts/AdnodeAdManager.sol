@@ -9,9 +9,9 @@ interface IAdSlotNFT {
     function ownerOf(uint256 tokenId) external view returns (address);
 }
 
-/// @title MetaShiftAdManager - Manages ad campaigns, views, and payouts
+/// @title Adnode Ad Manager - Manages ad campaigns, views, and payouts
 /// @notice Minimal viable contract for managing deposits and splitting payouts
-contract MetaShiftAdManager is Ownable, ReentrancyGuard {
+contract AdnodeAdManager is Ownable, ReentrancyGuard {
     struct Campaign {
         address advertiser;
         uint256 slotId; // AdSlotNFT token id target
@@ -131,5 +131,3 @@ contract MetaShiftAdManager is Ownable, ReentrancyGuard {
         require(ok, "send failed");
     }
 }
-
-

@@ -15,7 +15,7 @@ contract AdSlotNFT is ERC721, Ownable {
     event SlotMinted(address indexed to, uint256 indexed tokenId, string slotURI);
     event SlotURIUpdated(uint256 indexed tokenId, string slotURI);
 
-    constructor(address initialOwner) ERC721("MetaShift AdSlot", "MSLOT") Ownable(initialOwner) {}
+    constructor(address initialOwner) ERC721("Adnode AdSlot", "ASLOT") Ownable(initialOwner) {}
 
     function mintSlot(address to, string memory slotURI_) external onlyOwner returns (uint256) {
         uint256 tokenId = _nextTokenId++;

@@ -6,4 +6,4 @@ Plan:
 - Use The Graph Hosted Service or Subgraph Studio.
 
 To bootstrap later:
-- graph init --contract-name MetaShiftAdManager --from-contract <address> --network amoy
+- graph init --contract-name AdnodeAdManager --from-contract <address> --network amoy

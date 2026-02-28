@@ -14,8 +14,8 @@
 
   <rect x="380" y="60" width="560" height="260" rx="12" class="b"/>
   <text x="400" y="95" class="h">Polygon (Smart Contracts)</text>
-  <text x="400" y="120" class="t">AdSlotNFT Â· MetaShiftAdManager</text>
-  <text x="400" y="142" class="s">escrow budget Â· pay per verified view Â· split 70/20/10</text>
+  <text x="400" y="120" class="t">AdSlotNFT · Adnode Ad Manager</text>
+  <text x="400" y="142" class="s">escrow budget · pay per verified view · split 70/20/10</text>
 
   <rect x="60" y="260" width="260" height="120" rx="12" class="b"/>
   <text x="80" y="295" class="h">Host</text>
@@ -25,17 +25,17 @@
   <rect x="60" y="440" width="260" height="120" rx="12" class="b"/>
   <text x="80" y="475" class="h">Viewer</text>
   <text x="80" y="500" class="t">Connect Wallet</text>
-  <text x="80" y="522" class="s">verified views earn microâ€‘rewards</text>
+  <text x="80" y="522" class="s">verified views earn microrewards</text>
 
   <rect x="380" y="360" width="280" height="200" rx="12" class="b"/>
   <text x="400" y="395" class="h">Next.js (APIs)</text>
-  <text x="400" y="420" class="t">/api/verify Â· /api/payView Â· /api/adserve.js</text>
-  <text x="400" y="442" class="s">AI moderation stub Â· impression â†’ payView</text>
+  <text x="400" y="420" class="t">/api/verify · /api/payView · /api/adserve.js</text>
+  <text x="400" y="442" class="s">AI moderation stub · impression ’ payView</text>
 
   <rect x="700" y="360" width="240" height="200" rx="12" class="b"/>
   <text x="720" y="395" class="h">SideShift API</text>
   <text x="720" y="420" class="t">quotes & orders</text>
-  <text x="720" y="442" class="s">optional autoâ€‘swap of rewards</text>
+  <text x="720" y="442" class="s">optional autoswap of rewards</text>
 
   <!-- Arrows -->
   <defs>
@@ -51,5 +51,3 @@
     <path d="M660,180 C700,180 720,280 540,360"/>
   </g>
 </svg>
-
-

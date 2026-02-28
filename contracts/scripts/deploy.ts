@@ -4,17 +4,17 @@ async function main() {
   const [deployer] = await ethers.getSigners();
   console.log("Deployer:", deployer.address);
 
-  const treasury = process.env.METASHIFT_TREASURY || deployer.address;
+  const treasury = process.env.ADNODE_TREASURY || deployer.address;
 
   const AdSlotNFT = await ethers.getContractFactory("AdSlotNFT");
   const adSlot = await AdSlotNFT.deploy(deployer.address);
   await adSlot.waitForDeployment();
   console.log("AdSlotNFT:", await adSlot.getAddress());
 
-  const AdManager = await ethers.getContractFactory("MetaShiftAdManager");
+  const AdManager = await ethers.getContractFactory("AdnodeAdManager");
   const manager = await AdManager.deploy(await adSlot.getAddress(), deployer.address, treasury);
   await manager.waitForDeployment();
-  console.log("MetaShiftAdManager:", await manager.getAddress());
+  console.log("Adnode Ad Manager:", await manager.getAddress());
 }
 
 main().catch((e) => {
