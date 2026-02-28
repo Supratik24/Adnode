@@ -135,14 +135,14 @@ export default function CreateCampaign() {
         </div>
 
         {user.freeAdsRemaining > 0 && (
-          <div className="bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl p-6 text-white mb-8">
+          <div className="bg-gradient-to-r from-indigo-600 to-cyan-600 rounded-2xl p-6 text-white mb-8 shadow-xl">
             <div className="flex items-center gap-3">
-              <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-12 h-12 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
               </svg>
               <div>
-                <h3 className="text-xl font-bold mb-1">🎉 {user.freeAdsRemaining} Free Campaigns Available!</h3>
-                <p className="text-purple-100">Create your first campaigns at zero cost. Check the box below to use a free campaign credit.</p>
+                <h3 className="text-xl font-bold mb-1">🎉 {user.freeAdsRemaining} free campaigns available</h3>
+                <p className="text-indigo-100">Create your first campaigns at zero cost. Check the box below to use a free campaign credit.</p>
               </div>
             </div>
           </div>

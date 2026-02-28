@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from 'react';
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from 'next/navigation';
 import AdnodeLogo from '@/components/AdnodeLogo';
 
@@ -154,15 +155,15 @@ export default function Home() {
           <p className="text-lg text-indigo-100 mb-8">Deployed on Polygon · Powered by SideShift · Analytics by The Graph</p>
           <div className="flex flex-wrap justify-center gap-8 items-center">
             <div className="bg-white/10 backdrop-blur rounded-xl p-6 w-36 h-28 flex flex-col items-center justify-center border border-white/20">
-              <img src="/images/polygon-logo.png" alt="Polygon" className="h-12 w-12 object-contain mb-2" />
+              <Image src="/images/polygon-logo.png" alt="Polygon" width={48} height={48} className="mb-2 object-contain" />
               <p className="text-sm font-semibold">Polygon</p>
             </div>
             <div className="bg-white/10 backdrop-blur rounded-xl p-6 w-36 h-28 flex flex-col items-center justify-center border border-white/20">
-              <img src="/images/sideshift-logo.png" alt="SideShift" className="h-12 w-12 object-contain mb-2" />
+              <Image src="/images/sideshift-logo.png" alt="SideShift" width={48} height={48} className="mb-2 object-contain" />
               <p className="text-sm font-semibold">SideShift</p>
             </div>
             <div className="bg-white/10 backdrop-blur rounded-xl p-6 w-36 h-28 flex flex-col items-center justify-center border border-white/20">
-              <img src="/images/thegraph-logo.svg" alt="The Graph" className="h-12 w-12 object-contain mb-2" />
+              <Image src="/images/thegraph-logo.svg" alt="The Graph" width={48} height={48} className="mb-2 object-contain" />
               <p className="text-sm font-semibold">The Graph</p>
             </div>
           </div>

@@ -1,10 +1,8 @@
-# MetaShift — Decentralized Advertising 
+# Adnode — Decentralized Advertising 
 
-![MetaShift Logo](web/public/images/metashift-logo.jpg)
+Adnode is a Web3 advertising network where advertisers pay for attention, and hosts/viewers earn crypto for displaying or engaging with ads. It’s like BAT, but fully decentralized, Polygon‑powered, with AI verification and on‑chain payouts. SideShift is used to auto‑swap rewards to the recipient’s preferred asset.
 
-MetaShift is a Web3 advertising network where advertisers pay for attention, and hosts/viewers earn crypto for displaying or engaging with ads. It’s like BAT, but fully decentralized, Polygon‑powered, with AI verification and on‑chain payouts. SideShift is used to auto‑swap rewards to the recipient’s preferred asset.
-
-## What MetaShift Does
+## What Adnode Does
 - Advertisers rent on‑chain ad slots and fund campaigns in MATIC/USDC (or ERC‑20).
 - Hosts mint NFT “ad slots,” embed a small snippet on their sites/dApps, and earn from impressions.
 - Viewers earn micro‑rewards for verified views/interactions.
@@ -35,7 +33,7 @@ MetaShift is a Web3 advertising network where advertisers pay for attention, and
 
 ## Deployed (Amoy Testnet)
 - `AdSlotNFT`: 0x5771b9368a1d5beB88861b7bb4C44c467966058f
-- `MetaShiftAdManager`: 0xA5F95992d40782f3844e7B8BA5117fe05c4E530f
+- Ad Manager contract: `0xA5F95992d40782f3844e7B8BA5117fe05c4E530f`
 
 Update these in the web app env before running locally.
 
@@ -65,7 +63,7 @@ Update these in the web app env before running locally.
      - `SERVER_SIGNER_KEY=0x<low_priv_dev_key_with_test_MATIC>`
      - `SIDESHIFT_API_KEY=<your_sideshift_api_key>`
      - `MONGO_URL=mongodb+srv://...` (MongoDB connection string)
-     - `MONGO_DB=metashift` (optional, defaults to `metashift`)
+     - `MONGO_DB=adnode` (optional, defaults to `adnode`)
      - `WEB_SECRET=...` (long random string for signing tokens)
    - Run: `npm run dev`
 

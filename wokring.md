@@ -1,8 +1,8 @@
-# MetaShift - Decentralized Ad-to-Earn Platform
+# Adnode - Decentralized Ad-to-Earn Platform
 
 ## Overview
-MetaShift is a Web3 advertising network where users get paid crypto for viewing or hosting ads. It's like Brave Browser's BAT but fully decentralized, Polygon-powered, and built for the Web3 ecosystem.
- 
+Adnode is a Web3 advertising network where users get paid crypto for viewing or hosting ads. It's like Brave Browser's BAT but fully decentralized, Polygon-powered, and built for the Web3 ecosystem.
+
 ## Project Architecture
 
 ### Tech Stack
@@ -10,7 +10,7 @@ MetaShift is a Web3 advertising network where users get paid crypto for viewing 
 - **Blockchain**: Polygon Network (smart contracts deployed)
 - **Wallet Integration**: RainbowKit + wagmi + viem
 - **Database**: MongoDB (user management, campaigns, ad slots)
-- **External Services**: 
+- **External Services**:
   - SideShift API (crypto swaps for instant payouts)
   - The Graph (on-chain analytics and ad tracking)
   - WalletConnect (wallet connection)
@@ -47,7 +47,7 @@ All required environment variables are configured in Replit Secrets:
 - `SERVER_SIGNER_KEY` - Server wallet private key
 - `SIDESHIFT_API_KEY` - SideShift API key
 - `NEXT_PUBLIC_SLOT_ADDRESS` - AdSlotNFT contract address
-- `NEXT_PUBLIC_MANAGER_ADDRESS` - MetaShiftAdManager contract address
+- `NEXT_PUBLIC_MANAGER_ADDRESS` - Ad manager contract address
 - `NEXT_PUBLIC_BASE_URL` - Application base URL
 
 ## Running the Project
@@ -73,4 +73,3 @@ Configured for Replit autoscale deployment with build and start commands in depl
 - Build viewer rewards system
 - Add AI-powered ad verification
 - Implement rate limiting and CSRF protection
-ss
