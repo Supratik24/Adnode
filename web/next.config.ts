@@ -11,7 +11,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'metashift.xyz'
+        hostname: 'adnode.xyz'
       },
       {
         protocol: 'https',

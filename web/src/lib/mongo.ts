@@ -18,7 +18,7 @@ if (!cached) {
   globalThis._mongoClient = cached;
 }
 
-export async function getDb(dbName = process.env.MONGO_DB || "metashift") {
+export async function getDb(dbName = process.env.MONGO_DB || "adnode") {
   if (!cached) throw new Error("Mongo client not initialized");
   try {
     await cached.db("admin").command({ ping: 1 });
