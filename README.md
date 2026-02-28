@@ -76,12 +76,13 @@
   - `ALCHEMY_POLYGON_RPC=...`
   - `POLYGON_PRIVATE_KEY=0x...`
   - `ADNODE_TREASURY=0xYourTreasury`
-- Then run:
+- Compile and deploy:
   ```bash
+  cd contracts
   npx hardhat compile
   npx hardhat run scripts/deploy.ts --network amoy
   ```
-- Save the printed contract addresses.
+- Save the printed contract addresses (AdSlotNFT and **Adnode Ad Manager**).
 
 ### 2️⃣ Web App
 

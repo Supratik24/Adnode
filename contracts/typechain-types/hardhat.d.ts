@@ -78,9 +78,9 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IAdSlotNFT__factory>;
     getContractFactory(
-      name: "MetaShiftAdManager",
+      name: "AdnodeAdManager",
       signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.MetaShiftAdManager__factory>;
+    ): Promise<Contracts.AdnodeAdManager__factory>;
 
     getContractAt(
       name: "Ownable",
@@ -163,10 +163,10 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.IAdSlotNFT>;
     getContractAt(
-      name: "MetaShiftAdManager",
+      name: "AdnodeAdManager",
       address: string | ethers.Addressable,
       signer?: ethers.Signer
-    ): Promise<Contracts.MetaShiftAdManager>;
+    ): Promise<Contracts.AdnodeAdManager>;
 
     deployContract(
       name: "Ownable",
@@ -233,9 +233,9 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.IAdSlotNFT>;
     deployContract(
-      name: "MetaShiftAdManager",
+      name: "AdnodeAdManager",
       signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.MetaShiftAdManager>;
+    ): Promise<Contracts.AdnodeAdManager>;
 
     deployContract(
       name: "Ownable",
@@ -318,10 +318,10 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.IAdSlotNFT>;
     deployContract(
-      name: "MetaShiftAdManager",
+      name: "AdnodeAdManager",
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.MetaShiftAdManager>;
+    ): Promise<Contracts.AdnodeAdManager>;
 
     // default types
     getContractFactory(
