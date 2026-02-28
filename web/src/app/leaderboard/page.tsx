@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+import AdnodeLogo from '@/components/AdnodeLogo';
 import { TableRowSkeleton } from '../../components/Skeleton';
 
 interface LeaderboardEntry {
@@ -86,10 +86,10 @@ export default function LeaderboardPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent mb-4">
+          <h1 className="text-4xl font-bold adnode-gradient-text mb-4">
             Leaderboard
           </h1>
-          <p className="text-gray-600 text-lg">Top performers on the MetaShift platform</p>
+          <p className="text-slate-600 dark:text-slate-400 text-lg">Top performers on the Adnode platform</p>
         </div>
 
         {/* Platform Stats */}

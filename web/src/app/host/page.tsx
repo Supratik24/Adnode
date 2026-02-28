@@ -178,7 +178,7 @@ export default function DeveloperDashboard() {
     const base = typeof window !== 'undefined' ? (process.env.NEXT_PUBLIC_BASE_URL || window.location.origin) : (process.env.NEXT_PUBLIC_BASE_URL || '');
     const view = `${base}/r/${token}/view`;
     const click = `${base}/r/${token}/click`;
-    return `<div id=\"metashift-ad-${token}\"></div>\n<script>\n(async()=>{const root=document.getElementById('metashift-ad-${token}');const a=document.createElement('a');a.href='${click}';a.target='_blank';const img=document.createElement('img');img.src='${view}';img.style.maxWidth='100%';a.appendChild(img);root.appendChild(a);})();\n</script>`;
+    return `<div id=\"adnode-ad-${token}\"></div>\n<script>\n(async()=>{const root=document.getElementById('adnode-ad-${token}');const a=document.createElement('a');a.href='${click}';a.target='_blank';const img=document.createElement('img');img.src='${view}';img.style.maxWidth='100%';a.appendChild(img);root.appendChild(a);})();\n</script>`;
   };
 
   const copyToClipboard = (text: string) => {
@@ -198,10 +198,7 @@ export default function DeveloperDashboard() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-cyan-50 to-purple-50">
       <nav className="bg-white/80 backdrop-blur-md border-b sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-          <Link href="/" className="flex items-center gap-3">
-            <Image src="/images/metashift-logo.jpg" alt="MetaShift" width={40} height={40} className="rounded-lg" />
-            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">MetaShift</span>
-          </Link>
+          <AdnodeLogo href="/" size="md" />
           <div className="flex items-center gap-4">
             <span className="text-sm text-gray-600">{user.email}</span>
             <ConnectButton />

@@ -2,8 +2,8 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import Image from 'next/image';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
+import AdnodeLogo from '@/components/AdnodeLogo';
 
 export default function CreateAdSlot() {
   const router = useRouter();
@@ -95,12 +95,7 @@ export default function CreateAdSlot() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-cyan-50 to-teal-50">
       <nav className="bg-white/80 backdrop-blur-md border-b sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-          <Link href="/host" className="flex items-center gap-3">
-            <Image src="/images/metashift-logo.jpg" alt="MetaShift" width={40} height={40} className="rounded-lg" />
-            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
-              MetaShift
-            </span>
-          </Link>
+          <AdnodeLogo href="/host" size="md" />
           <div className="flex items-center gap-4">
             <Link href="/host" className="text-gray-600 hover:text-gray-900 font-medium">
               Dashboard

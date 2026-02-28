@@ -1,4 +1,4 @@
-# MetaShift Web
+# Adnode Web
 
 Environment variables required (create `.env.local`):
 
@@ -10,7 +10,7 @@ Environment variables required (create `.env.local`):
 - SERVER_SIGNER_KEY
 - SIDESHIFT_API_KEY
 - MONGO_URL (MongoDB connection string)
-- MONGO_DB (optional, defaults to `metashift`)
+- MONGO_DB (optional, defaults to `adnode`)
 - WEB_SECRET (long random string for signing tokens)
 
 Run:
