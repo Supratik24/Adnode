@@ -159,7 +159,7 @@ export default function Home() {
               <p className="text-sm font-semibold">Polygon</p>
             </div>
             <div className="bg-white/10 backdrop-blur rounded-xl p-6 w-36 h-28 flex flex-col items-center justify-center border border-white/20">
-              <Image src="/images/sideshift-logo.png" alt="SideShift" width={48} height={48} className="mb-2 object-contain" />
+              <Image src="/images/sideshift-logo.svg" alt="SideShift" width={48} height={48} className="mb-2 object-contain" />
               <p className="text-sm font-semibold">SideShift</p>
             </div>
             <div className="bg-white/10 backdrop-blur rounded-xl p-6 w-36 h-28 flex flex-col items-center justify-center border border-white/20">
