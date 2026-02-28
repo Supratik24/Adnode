@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 });
 
 const config = getDefaultConfig({
-  appName: 'MetaShift',
+  appName: 'Adnode',
   projectId: process.env.NEXT_PUBLIC_WALLETCONNECT_ID || 'demo',
   chains: [polygonAmoy],
 });

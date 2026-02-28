@@ -14,7 +14,7 @@ const queryClient = new QueryClient();
 const projectId = process.env.NEXT_PUBLIC_WALLETCONNECT_ID || "demo";
 
 const config = getDefaultConfig({
-  appName: "MetaShift",
+  appName: "Adnode",
   projectId,
   chains: [polygonAmoy, polygon],
   ssr: true,
