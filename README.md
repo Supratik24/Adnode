@@ -1,173 +1,107 @@
-# Decentralized Prediction Market Platform
+# MetaShift — Decentralized Advertising 
 
-A fully functional prediction market platform built on Polygon Amoy, featuring AMM-based trading, Polygon ID verification, reputation systems, and a complete backend server.
+![MetaShift Logo](web/public/images/metashift-logo.jpg)
 
-## 🎯 Features
+MetaShift is a Web3 advertising network where advertisers pay for attention, and hosts/viewers earn crypto for displaying or engaging with ads. It’s like BAT, but fully decentralized, Polygon‑powered, with AI verification and on‑chain payouts. SideShift is used to auto‑swap rewards to the recipient’s preferred asset.
 
-- **Prediction Markets**: Create and trade on YES/NO prediction markets
-- **AMM-Based Trading**: Automated Market Maker pricing for fair market dynamics
-- **Polygon ID Integration**: Privacy-preserving human verification
-- **Reputation System**: XP and tier-based reputation for traders
-- **Real-time Updates**: WebSocket support for live price updates
-- **Oracle Service**: Automated market resolution
-- **Backend API**: RESTful API for market data and operations
-- **Security**: Oracle manipulation protection, parameter validation, reentrancy guards
+## What MetaShift Does
+- Advertisers rent on‑chain ad slots and fund campaigns in MATIC/USDC (or ERC‑20).
+- Hosts mint NFT “ad slots,” embed a small snippet on their sites/dApps, and earn from impressions.
+- Viewers earn micro‑rewards for verified views/interactions.
+- Payouts are split automatically (default 70% Host / 20% Viewer / 10% Treasury) and can be auto‑swapped via SideShift.
 
-## 📁 Project Structure
+## How It Works
+ 
 
-```
-.
-├── contracts/          # Smart contracts (Solidity)
-│   ├── src/           # Contract source files
-│   ├── script/         # Deployment scripts
-│   └── test/           # Contract tests
-├── backend/            # Backend server (Express.js)
-│   ├── src/
-│   │   ├── routes/     # API routes
-│   │   ├── services/   # Business logic
-│   │   └── utils/     # Utilities
-├── frontend/           # Next.js frontend
-│   └── src/
-│       ├── app/        # Next.js app router pages
-│       ├── components/ # React components
-│       ├── lib/        # API client
-│       └── hooks/      # Custom hooks
-└── README.md
-```
+1) Advertiser submits ad creative + budget → Smart contract escrows funds.
+2) Host’s site loads the embed snippet → fetches ad creative to display.
+3) A verified view occurs → backend calls `payView` on‑chain.
+4) Contract splits payment: Host, Viewer, Treasury.
+5) Optional: recipients swap rewards using SideShift API.
 
-## 🚀 Quick Start
+## User Roles
+- Advertiser: creates campaigns, funds them, tracks performance.
+- Host (Developer/Website Owner): mints ad‑slot NFT, embeds snippet, earns payouts.
+- Viewer: connects wallet; verified attention earns micro‑rewards.
 
-See [SETUP.md](SETUP.md) for complete setup instructions.
+## Tech Stack
+- Blockchain: Polygon (Amoy testnet / Mainnet)
+- Contracts: Solidity, Hardhat, OpenZeppelin
+- Frontend: Next.js (App Router), Tailwind, RainbowKit, wagmi, viem, Ethers v6, Zustand, React Query
+- Data: MongoDB (users, campaigns, placements, analytics)
+- Indexing: The Graph (subgraph placeholder included)
+- Payments/Swap: SideShift API (quotes + orders)
+- AI Verification: API stub ready for provider integration
 
-### 1. Deploy Contracts
+## Deployed (Amoy Testnet)
+- `AdSlotNFT`: 0x5771b9368a1d5beB88861b7bb4C44c467966058f
+- `MetaShiftAdManager`: 0xA5F95992d40782f3844e7B8BA5117fe05c4E530f
 
-```bash
-cd contracts
-npm install
-cp env.example .env
-# Edit .env with your private key
-npm run compile
-npm run deploy:amoy
-```
+Update these in the web app env before running locally.
 
-### 2. Start Backend
+## Monorepo Layout
+- `contracts/` — Hardhat project, Solidity contracts, deploy script
+- `web/` — Next.js app (advertiser + host dashboards, API routes)
+- `subgraph/` — The Graph notes (placeholder)
 
-```bash
-cd backend
-npm install
-cp .env.example .env
-# Edit .env with contract addresses
-npm run dev
-```
+## Quick Start (Dev)
+1) Contracts (Polygon Amoy)
+   - Set `.env` in `contracts/`:
+     - `ALCHEMY_POLYGON_RPC=...`
+     - `POLYGON_PRIVATE_KEY=0x...`
+     - `METASHIFT_TREASURY=0xYourTreasury`
+   - Compile & Deploy:
+     - `npx hardhat compile`
+     - `npx hardhat run scripts/deploy.ts --network amoy`
+   - Save printed addresses.
 
-### 3. Start Frontend
+2) Web App
+   - Set `.env.local` in `web/`:
+     - `NEXT_PUBLIC_SLOT_ADDRESS=...`
+     - `NEXT_PUBLIC_MANAGER_ADDRESS=...`
+     - `NEXT_PUBLIC_WALLETCONNECT_ID=demo` (or your WC ID)
+     - `NEXT_PUBLIC_BASE_URL=http://localhost:3000`
+     - `POLYGON_RPC=...` (Amoy RPC)
+     - `SERVER_SIGNER_KEY=0x<low_priv_dev_key_with_test_MATIC>`
+     - `SIDESHIFT_API_KEY=<your_sideshift_api_key>`
+     - `MONGO_URL=mongodb+srv://...` (MongoDB connection string)
+     - `MONGO_DB=metashift` (optional, defaults to `metashift`)
+     - `WEB_SECRET=...` (long random string for signing tokens)
+   - Run: `npm run dev`
 
-```bash
-cd frontend
-npm install
-cp env.example .env.local
-# Edit .env.local with contract addresses and API URL
-npm run dev
-```
+3) Use It
+   - Host: `/host` → mint ad slot → copy embed snippet.
+   - Advertiser: `/advertiser` → create + fund a campaign.
+   - Test a payout: POST `/api/payView` with `{ id, viewer, nonce }`.
+   - View analytics & leaderboard: `/leaderboard` (top hosts/advertisers + platform stats).
+   - View your transaction history: `/transactions` (requires sign-in).
+   - Manage profile & wallet: `/settings` (requires sign-in).
 
-## 🔧 Configuration
+## Recent Web App Changes
+- Switched the global Wagmi/RainbowKit configuration to use the Polygon Amoy testnet (`polygonAmoy`) and added a `NetworkStatus` pill so users can see and switch to the correct network.
+- Added a reusable toast system (`ToastContainer` + `toast.*` helpers backed by Zustand) for success/error/info messages across pages like Settings.
+- Introduced MongoDB-backed APIs and dashboards:
+  - `/api/leaderboard` + `/leaderboard` page show top hosts/advertisers and global stats from `users`, `campaigns`, and `placements` collections.
+  - `/api/transactions` + `/transactions` page build a per-user transaction history (campaign funding + placement earnings) and summary cards.
+  - `/api/user/update` + `/settings` page let signed-in users edit display name, wallet address, and password with server-side validation.
+- Implemented basic in-memory rate limiting middleware (`rateLimitMiddleware`) for sensitive API routes (profile updates, analytics) to make abuse harder.
+- Added UI polish components like skeleton loaders, analytics charts, toast animations, and line-clamp utilities to make dashboards feel faster and cleaner.
 
-### Smart Contracts
+## Production Hardening
+- Replace server‑side signer with user‑signed tx flows or a secure backend service.
+- Add robust AI moderation + fraud detection before paying views.
+- Move view verification off of simple endpoints to an oracle/attestation flow.
+- Build a real subgraph and analytics dashboard.
+- Add allowlisting, rate limits, and signature checks to API routes.
 
-- **Network**: Polygon Amoy (Chain ID: 80002)
-- **RPC**: https://rpc-amoy.polygon.technology
-- **Faucet**: https://faucet.polygon.technology/
+## Security Notes
+- Treat private keys as secrets. Rotate any exposed keys.
+- Use separate keys for deployer, treasury, and server tasks.
+- Consider multisig or timelocks for treasury and config changes.
 
-### Backend Server
+Made by 💗 Nikku for u
 
-- **Port**: 3001 (default)
-- **API**: http://localhost:3001/api
-- **WebSocket**: ws://localhost:3001/ws
 
-### Frontend
 
-- **Port**: 3000 (default)
-- **URL**: http://localhost:3000
 
-## 📡 API Endpoints
 
-### Markets
-
-- `GET /api/markets` - Get all markets
-- `GET /api/markets/:address` - Get market details
-- `GET /api/markets/:address/prices` - Get current prices
-- `GET /api/markets/:address/pool` - Get pool information
-- `GET /api/markets/:address/user/:userAddress` - Get user balance
-
-### Oracle
-
-- `POST /api/oracle/resolve` - Resolve a market
-- `POST /api/oracle/vote` - Submit resolution vote
-
-### Reputation
-
-- `GET /api/reputation/:userAddress` - Get user reputation
-
-### Polygon ID
-
-- `GET /api/polygon-id/verify/:userAddress` - Check verification status
-
-## 🛡️ Security Features
-
-- ✅ Reentrancy protection
-- ✅ Oracle manipulation prevention (time delays, multi-sig)
-- ✅ Market parameter validation
-- ✅ Overflow/underflow protection
-- ✅ Access control on sensitive functions
-
-## 📚 Documentation
-
-- [SETUP.md](SETUP.md) - Complete setup guide
-- [DEPLOYMENT.md](DEPLOYMENT.md) - Deployment instructions
-- [QUICKSTART.md](QUICKSTART.md) - Quick start guide
-- [backend/README.md](backend/README.md) - Backend documentation
-
-## 🧪 Testing
-
-### Contracts
-
-```bash
-cd contracts
-npm test
-```
-
-### Backend
-
-```bash
-cd backend
-# Test API endpoints
-curl http://localhost:3001/health
-```
-
-## 🚢 Production Deployment
-
-1. Deploy contracts to Polygon mainnet
-2. Deploy backend to cloud (Heroku, AWS, etc.)
-3. Deploy frontend to Vercel/Netlify
-4. Update environment variables
-5. Enable monitoring and logging
-
-## 📝 License
-
-MIT
-
-## 🤝 Contributing
-
-Contributions are welcome! Please open an issue or submit a pull request.
-
-## ⚠️ Security Notes
-
-- Never commit `.env` files
-- Use strong private keys
-- Enable HTTPS in production
-- Set up rate limiting
-- Regular security audits recommended
-
----
-
-Built with ❤️ on Polygon

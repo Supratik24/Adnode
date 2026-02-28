@@ -1,9 +1,15 @@
-node_modules/
-.env
-cache/
-artifacts/
-typechain/
-typechain-types/
-coverage/
-coverage.json
+node_modules
+ 
+# misc
+.DS_Store
+*.pem
 
+# dependencies
+node_modules
+
+# production
+build
+
+# misc
+.DS_Store
+*.pem       
