@@ -2,8 +2,8 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import Image from 'next/image';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
+import AdnodeLogo from '@/components/AdnodeLogo';
 
 interface Campaign {
   _id: string;
@@ -67,29 +67,24 @@ export default function AdvertiserDashboard() {
 
   if (loading || !user) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
-        <div className="text-gray-600">Loading...</div>
+      <div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-900">
+        <div className="flex flex-col items-center gap-4">
+          <div className="w-10 h-10 border-2 border-indigo-500 border-t-transparent rounded-full animate-spin" />
+          <span className="text-slate-600 dark:text-slate-400">Loading...</span>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <nav className="bg-white border-b sticky top-0 z-50">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-900">
+      <nav className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-          <Link href="/" className="flex items-center gap-3">
-            <Image src="/images/metashift-logo.jpg" alt="MetaShift" width={40} height={40} className="rounded-lg" />
-            <span className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent">
-              MetaShift
-            </span>
-          </Link>
+          <AdnodeLogo href="/" size="md" />
           <div className="flex items-center gap-4">
-            <span className="text-sm text-gray-600">{user.email}</span>
+            <span className="text-sm text-slate-600 dark:text-slate-400">{user.email}</span>
             <ConnectButton />
-            <button
-              onClick={handleLogout}
-              className="text-sm text-red-600 hover:text-red-700 font-medium"
-            >
+            <button onClick={handleLogout} className="text-sm text-red-600 hover:text-red-700 font-medium">
               Logout
             </button>
           </div>
@@ -98,22 +93,19 @@ export default function AdvertiserDashboard() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">Advertiser Dashboard</h1>
-          <p className="text-gray-600">Manage your campaigns and track performance</p>
+          <h1 className="text-4xl font-bold text-slate-900 dark:text-white mb-2">Advertiser Dashboard</h1>
+          <p className="text-slate-600 dark:text-slate-400">Manage your campaigns and track performance</p>
         </div>
 
         {user.freeAdsRemaining > 0 && (
-          <div className="bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl p-6 text-white mb-8">
-            <div className="flex items-center justify-between">
+          <div className="bg-gradient-to-r from-indigo-600 to-cyan-600 rounded-2xl p-6 text-white mb-8 shadow-xl">
+            <div className="flex items-center justify-between flex-wrap gap-4">
               <div>
-                <h3 className="text-2xl font-bold mb-2">🎉 Welcome Bonus!</h3>
-                <p className="text-purple-100">You have {user.freeAdsRemaining} free ad credits remaining. Create your first campaign at zero cost!</p>
+                <h3 className="text-xl font-bold mb-2">🎉 Welcome bonus</h3>
+                <p className="text-indigo-100">You have {user.freeAdsRemaining} free ad credits. Create your first campaign at zero cost.</p>
               </div>
-              <Link
-                href="/advertiser"
-                className="bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-purple-50 transition-colors"
-              >
-                Create Free Ad
+              <Link href="/advertiser" className="bg-white text-indigo-600 px-6 py-3 rounded-xl font-semibold hover:bg-indigo-50 transition-colors">
+                Create free ad
               </Link>
             </div>
           </div>
