@@ -2,13 +2,12 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import Image from 'next/image';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
-import { useAccount } from 'wagmi';
+import AdnodeLogo from '@/components/AdnodeLogo';
 
 export default function SignUpPage() {
   const router = useRouter();
-  const { address, isConnected } = useAccount();
+  const { address } = useAccount();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState<'advertiser' | 'host'>('advertiser');
@@ -18,8 +17,6 @@ export default function SignUpPage() {
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
-
-    // wallet is optional during signup; advertisers will connect/pay when creating campaigns
     setLoading(true);
 
     try {
@@ -37,96 +34,91 @@ export default function SignUpPage() {
         return;
       }
 
-      if (role === 'advertiser') {
-        router.push('/dashboard');
-      } else {
-        router.push('/host');
-      }
-    } catch (err) {
+      if (role === 'advertiser') router.push('/dashboard');
+      else router.push('/host');
+    } catch {
       setError('Something went wrong');
       setLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-white flex items-center justify-center px-4">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-indigo-50/20 to-slate-100 dark:from-slate-900 dark:via-slate-900 dark:to-indigo-950/20 flex items-center justify-center px-4 py-12">
       <div className="max-w-md w-full">
-          <div className="text-center mb-8">
-          <Link href="/" className="inline-flex items-center gap-2 mb-4">
-            <Image src="/images/metashift-logo.jpg" alt="MetaShift" width={50} height={50} />
-            <span className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent">
-              MetaShift
-            </span>
+        <div className="text-center mb-8">
+          <Link href="/" className="inline-flex mb-6">
+            <AdnodeLogo href="/" size="lg" />
           </Link>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Create Your Account</h1>
-          <p className="text-gray-600">Join the decentralized advertising revolution</p>
+          <h1 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">Create your account</h1>
+          <p className="text-slate-600 dark:text-slate-400">Join the decentralized advertising revolution</p>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-xl p-8">
+        <div className="bg-white dark:bg-slate-800/90 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-8">
           <div className="mb-6">
-            <label className="block text-sm font-semibold text-gray-700 mb-3">I want to:</label>
-            <div className="grid grid-cols-2 gap-4">
+            <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">I want to</label>
+            <div className="grid grid-cols-2 gap-3">
               <button
                 type="button"
                 onClick={() => setRole('advertiser')}
-                className={`p-4 rounded-xl border-2 transition-all ${
+                className={`p-4 rounded-xl border-2 transition-all text-left ${
                   role === 'advertiser'
-                    ? 'border-purple-500 bg-purple-50 text-purple-700'
-                    : 'border-gray-200 hover:border-purple-300'
+                    ? 'border-indigo-500 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300'
+                    : 'border-slate-200 dark:border-slate-600 hover:border-indigo-300 dark:hover:border-indigo-700'
                 }`}
               >
-                <div className="font-semibold mb-1">Advertise</div>
-                <div className="text-xs text-gray-600">Run ad campaigns</div>
-                <div className="text-xs text-purple-600 font-semibold mt-2">Get 5 Free Ads!</div>
+                <span className="font-semibold block">Advertise</span>
+                <span className="text-xs text-slate-600 dark:text-slate-400 block mt-1">Run ad campaigns</span>
+                <span className="text-xs text-indigo-600 dark:text-indigo-400 font-semibold mt-2 block">Get 5 free ads</span>
               </button>
               <button
                 type="button"
                 onClick={() => setRole('host')}
-                className={`p-4 rounded-xl border-2 transition-all ${
+                className={`p-4 rounded-xl border-2 transition-all text-left ${
                   role === 'host'
-                    ? 'border-blue-500 bg-blue-50 text-blue-700'
-                    : 'border-gray-200 hover:border-blue-300'
+                    ? 'border-cyan-500 bg-cyan-50 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300'
+                    : 'border-slate-200 dark:border-slate-600 hover:border-cyan-300 dark:hover:border-cyan-700'
                 }`}
               >
-                <div className="font-semibold mb-1">Developer (Host)</div>
-                <div className="text-xs text-gray-600">Earn from your site</div>
+                <span className="font-semibold block">Developer (Host)</span>
+                <span className="text-xs text-slate-600 dark:text-slate-400 block mt-1">Earn from your site</span>
               </button>
             </div>
           </div>
 
-          <form onSubmit={handleSignUp} className="space-y-4">
+          <form onSubmit={handleSignUp} className="space-y-5">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Email</label>
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                className="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                placeholder="you@example.com"
                 required
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Password</label>
+              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Password</label>
               <input
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                className="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                 required
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Connect Wallet (optional)</label>
+              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Connect wallet (optional)</label>
               <div className="flex justify-center">
                 <ConnectButton />
               </div>
-              <p className="text-sm text-gray-500 mt-2 text-center">Connect your wallet later when you create campaigns or perform on-chain actions.</p>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-2 text-center">Connect when you create campaigns or perform on-chain actions.</p>
             </div>
 
             {error && (
-              <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+              <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-300 px-4 py-3 rounded-xl text-sm">
                 {error}
               </div>
             )}
@@ -134,17 +126,17 @@ export default function SignUpPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-gradient-to-r from-purple-600 to-blue-500 text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-gradient-to-r from-indigo-600 to-indigo-700 text-white py-3.5 rounded-xl font-semibold hover:from-indigo-700 hover:to-indigo-800 shadow-lg shadow-indigo-500/25 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {loading ? 'Creating Account...' : 'Create Account'}
+              {loading ? 'Creating account...' : 'Create account'}
             </button>
           </form>
 
           <div className="mt-6 text-center">
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-slate-600 dark:text-slate-400">
               Already have an account?{' '}
-              <Link href="/signin" className="text-purple-600 font-semibold hover:text-purple-700">
-                Sign In
+              <Link href="/signin" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">
+                Sign in
               </Link>
             </p>
           </div>
