@@ -112,114 +112,101 @@ export default function AdvertiserDashboard() {
         )}
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-          <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+          <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 border border-slate-200 dark:border-slate-700">
             <div className="flex items-center gap-3 mb-2">
-              <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
-                <svg className="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-10 h-10 bg-indigo-100 dark:bg-indigo-900/50 rounded-lg flex items-center justify-center">
+                <svg className="w-5 h-5 text-indigo-600 dark:text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                 </svg>
               </div>
-              <h3 className="text-gray-600 text-sm font-medium">Active Campaigns</h3>
+              <h3 className="text-slate-600 dark:text-slate-400 text-sm font-medium">Active Campaigns</h3>
             </div>
-            <p className="text-3xl font-bold text-gray-900">{campaigns.length}</p>
+            <p className="text-3xl font-bold text-slate-900 dark:text-white">{campaigns.length}</p>
           </div>
-
-          <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+          <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 border border-slate-200 dark:border-slate-700">
             <div className="flex items-center gap-3 mb-2">
-              <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-10 h-10 bg-cyan-100 dark:bg-cyan-900/50 rounded-lg flex items-center justify-center">
+                <svg className="w-5 h-5 text-cyan-600 dark:text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                 </svg>
               </div>
-              <h3 className="text-gray-600 text-sm font-medium">Total Impressions</h3>
+              <h3 className="text-slate-600 dark:text-slate-400 text-sm font-medium">Total Impressions</h3>
             </div>
-            <p className="text-3xl font-bold text-gray-900">{totalImpressions.toLocaleString()}</p>
+            <p className="text-3xl font-bold text-slate-900 dark:text-white">{totalImpressions.toLocaleString()}</p>
           </div>
-
-          <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+          <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 border border-slate-200 dark:border-slate-700">
             <div className="flex items-center gap-3 mb-2">
-              <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
-                <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-10 h-10 bg-emerald-100 dark:bg-emerald-900/50 rounded-lg flex items-center justify-center">
+                <svg className="w-5 h-5 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
                 </svg>
               </div>
-              <h3 className="text-gray-600 text-sm font-medium">Total Clicks</h3>
+              <h3 className="text-slate-600 dark:text-slate-400 text-sm font-medium">Total Clicks</h3>
             </div>
-            <p className="text-3xl font-bold text-gray-900">{totalClicks.toLocaleString()}</p>
+            <p className="text-3xl font-bold text-slate-900 dark:text-white">{totalClicks.toLocaleString()}</p>
           </div>
-
-          <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+          <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 border border-slate-200 dark:border-slate-700">
             <div className="flex items-center gap-3 mb-2">
-              <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
-                <svg className="w-5 h-5 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-10 h-10 bg-amber-100 dark:bg-amber-900/50 rounded-lg flex items-center justify-center">
+                <svg className="w-5 h-5 text-amber-600 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-gray-600 text-sm font-medium">Total Spent</h3>
+              <h3 className="text-slate-600 dark:text-slate-400 text-sm font-medium">Total Spent</h3>
             </div>
-            <p className="text-3xl font-bold text-gray-900">${totalSpent.toFixed(2)}</p>
+            <p className="text-3xl font-bold text-slate-900 dark:text-white">${totalSpent.toFixed(2)}</p>
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-md p-6 mb-8">
-          <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl font-bold text-gray-900">Your Campaigns</h2>
-            <Link
-              href="/advertiser"
-              className="bg-gradient-to-r from-purple-600 to-blue-500 text-white px-6 py-2 rounded-lg font-semibold hover:shadow-lg transition-all"
-            >
-              + Create Campaign
+        <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-6 mb-8 border border-slate-200 dark:border-slate-700">
+          <div className="flex justify-between items-center mb-6 flex-wrap gap-4">
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Your campaigns</h2>
+            <Link href="/advertiser" className="bg-gradient-to-r from-indigo-600 to-cyan-600 text-white px-6 py-2.5 rounded-xl font-semibold hover:shadow-lg transition-all">
+              + Create campaign
             </Link>
           </div>
 
           {campaigns.length === 0 ? (
             <div className="text-center py-12">
-              <div className="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-20 h-20 bg-slate-100 dark:bg-slate-700 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <svg className="w-10 h-10 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">No campaigns yet</h3>
-              <p className="text-gray-600 mb-6">Create your first campaign and start reaching your audience on Web3!</p>
-              <Link
-                href="/advertiser"
-                className="inline-block bg-gradient-to-r from-purple-600 to-blue-500 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all"
-              >
-                Create Your First Campaign
+              <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">No campaigns yet</h3>
+              <p className="text-slate-600 dark:text-slate-400 mb-6">Create your first campaign and start reaching your audience on Web3.</p>
+              <Link href="/advertiser" className="inline-block bg-gradient-to-r from-indigo-600 to-cyan-600 text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition-all">
+                Create your first campaign
               </Link>
             </div>
           ) : (
             <div className="space-y-4">
               {campaigns.map((campaign) => (
-                <div key={campaign._id} className="border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
+                <div key={campaign._id} className="border border-slate-200 dark:border-slate-700 rounded-xl p-6 hover:shadow-md transition-shadow bg-slate-50/50 dark:bg-slate-700/30">
                   <div className="flex justify-between items-start mb-4">
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-1">{campaign.title}</h3>
+                      <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-1">{campaign.title}</h3>
                       {campaign.isFreeAd && (
-                        <span className="inline-block bg-purple-100 text-purple-700 text-xs font-semibold px-2 py-1 rounded">
-                          Free Ad
-                        </span>
+                        <span className="inline-block bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300 text-xs font-semibold px-2 py-1 rounded-lg">Free ad</span>
                       )}
                     </div>
-                    <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                      campaign.status === 'active' ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-700'
-                    }`}>
+                    <span className={`px-3 py-1 rounded-full text-sm font-medium ${campaign.status === 'active' ? 'bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300' : 'bg-slate-100 dark:bg-slate-600 text-slate-700 dark:text-slate-300'}`}>
                       {campaign.status}
                     </span>
                   </div>
                   <div className="grid grid-cols-3 gap-4">
                     <div>
-                      <p className="text-sm text-gray-600">Impressions</p>
-                      <p className="text-xl font-semibold text-gray-900">{campaign.impressions.toLocaleString()}</p>
+                      <p className="text-sm text-slate-600 dark:text-slate-400">Impressions</p>
+                      <p className="text-xl font-semibold text-slate-900 dark:text-white">{campaign.impressions.toLocaleString()}</p>
                     </div>
                     <div>
-                      <p className="text-sm text-gray-600">Clicks</p>
-                      <p className="text-xl font-semibold text-gray-900">{campaign.clicks.toLocaleString()}</p>
+                      <p className="text-sm text-slate-600 dark:text-slate-400">Clicks</p>
+                      <p className="text-xl font-semibold text-slate-900 dark:text-white">{campaign.clicks.toLocaleString()}</p>
                     </div>
                     <div>
-                      <p className="text-sm text-gray-600">Spent</p>
-                      <p className="text-xl font-semibold text-gray-900">${campaign.spent.toFixed(2)}</p>
+                      <p className="text-sm text-slate-600 dark:text-slate-400">Spent</p>
+                      <p className="text-xl font-semibold text-slate-900 dark:text-white">${campaign.spent.toFixed(2)}</p>
                     </div>
                   </div>
                 </div>
@@ -228,18 +215,12 @@ export default function AdvertiserDashboard() {
           )}
         </div>
 
-        <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 text-center">
-          <h3 className="text-2xl font-bold text-gray-900 mb-3">Powered by Web3 Technology</h3>
-          <p className="text-gray-600 mb-6">All transactions are verified on Polygon blockchain with instant crypto payouts via SideShift</p>
-          <div className="flex justify-center gap-8">
-            <div className="flex items-center gap-2">
-              <Image src="/images/polygon-logo.png" alt="Polygon" width={24} height={24} className="rounded" />
-              <span className="text-sm font-medium text-gray-700">Polygon Network</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Image src="/images/sideshift-logo.png" alt="SideShift" width={24} height={24} className="rounded" />
-              <span className="text-sm font-medium text-gray-700">SideShift Swaps</span>
-            </div>
+        <div className="bg-gradient-to-br from-indigo-50 to-cyan-50 dark:from-indigo-950/30 dark:to-cyan-950/30 rounded-2xl p-8 text-center border border-indigo-100 dark:border-indigo-900/50">
+          <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">Powered by Web3</h3>
+          <p className="text-slate-600 dark:text-slate-400 mb-6">Transactions verified on Polygon with instant crypto payouts via SideShift.</p>
+          <div className="flex justify-center gap-8 flex-wrap">
+            <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Polygon</span>
+            <span className="text-sm font-medium text-slate-700 dark:text-slate-300">SideShift</span>
           </div>
         </div>
       </div>
